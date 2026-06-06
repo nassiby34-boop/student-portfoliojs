@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Student Portfolio Website</title>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         NAVIGATION MENU - Links to all group pages
+         ============================================================ -->
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="profile1.html">Nasib Yasin</a> |
+        <a href="profile2.html">Joel Gregory</a> |
+        <a href="profile3.html">Martha Haule</a> |
+        <a href="profile4.html">Esther Mbise</a>
+    </nav>
+
+    <hr>
+
+    <!-- ============================================================
+         PAGE TITLE
+         ============================================================ -->
+    <h1>Contact Us</h1>
+    <p>Feel free to reach out to us using the information below or by filling in the contact form.</p>
+
+    <hr>
+
+    <!-- ============================================================
+         SECTION 1: CONTACT INFORMATION
+         ============================================================ -->
+    <h2>Contact Information</h2>
+
+    <!-- Email as a mailto link -->
+    <p><strong>Email:</strong> <a href="mailto:nassiby34@gmail.com">nassiby34@gmail.com</a></p>
+
+    <!-- Phone number -->
+    <p><strong>Phone:</strong> +255 769 398 631</p>
+
+    <!-- Address -->
+    <p><strong>Address:</strong> University of Dar es Salaam, Dar es Salaam, Tanzania</p>
+
+    <hr>
+
+    <!-- ============================================================
+         SECTION 2: CONTACT FORM
+         ============================================================ -->
+    <h2>Send Us a Message</h2>
+
+    <form>
+
+        <!-- Name input -->
+        <label for="name"><strong>Full Name:</strong></label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" size="30">
+        <span id="nameError"></span>
+        <br><br>
+
+        <!-- Email input -->
+        <label for="email"><strong>Email Address:</strong></label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" size="30">
+        <span id="emailError"></span>
+        <br><br>
+
+        <!-- Message textarea -->
+        <label for="message"><strong>Message:</strong></label><br>
+        <textarea id="message" name="message" rows="6" cols="40" placeholder="Write your message here..."></textarea>
+        <span id="messageError"></span>
+        <br><br>
+
+        <!-- Radio buttons - Inquiry type -->
+        <label><strong>Inquiry Type:</strong></label><br>
+        <input type="radio" name="inquiry" value="general"> General Question<br>
+        <input type="radio" name="inquiry" value="collaboration"> Collaboration<br>
+        <input type="radio" name="inquiry" value="feedback"> Feedback<br>
+        <input type="radio" name="inquiry" value="other"> Other<br>
+        <span id="inquiryError"></span>
+        <br>
+
+        <!-- Checkboxes - Interests -->
+        <label><strong>I am interested in:</strong></label><br>
+        <input type="checkbox" name="interest" value="programming"> Programming<br>
+        <input type="checkbox" name="interest" value="design"> Design &amp; Art<br>
+        <input type="checkbox" name="interest" value="cybersecurity"> Cybersecurity<br>
+        <input type="checkbox" name="interest" value="gamedev"> Game Development<br>
+        <input type="checkbox" name="interest" value="other"> Other<br>
+        <span id="interestError"></span>
+        <br>
+
+        <!-- Submit and Reset buttons -->
+        <input type="submit" value="Submit">
+        &nbsp;
+        <input type="reset" value="Reset">
+
+    </form>
+
+    <hr>
+
+    <!-- Footer -->
+    <p><em>University of Dar es Salaam &mdash; 2026</em></p>
+    <p><a href="index.html">Back to Home</a></p>
+
+  <script src="js/contact.js" defer></script>
+
+</body>
+
+</html>

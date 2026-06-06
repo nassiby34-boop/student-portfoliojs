@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile - Joel Gregory</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* DARK MODE */
+        body.dark-mode {
+            background-color: #0a1628;
+            color: #e0e0f0;
+        }
+        body.dark-mode table, body.dark-mode td, body.dark-mode th {
+            border-color: #444;
+            color: #e0e0f0;
+        }
+
+        /* Dark/Light button */
+        #darkLightBtn {
+            background: #1a6ef5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        /* Sort button */
+        #sortBtn {
+            background: #1a6ef5;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Hobby items */
+        .hobby-item { margin-bottom: 10px; }
+        .hobby-desc { font-size: 0.9rem; color: #555; margin-top: 4px; }
+
+        /* Image section */
+        .img-section img { cursor: pointer; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="profile1.html">Nasib Yasin</a> |
+        <a href="profile2.html">Joel Gregory</a> |
+        <a href="profile3.html">Martha Haule</a> |
+        <a href="profile4.html">Esther Mbise</a>
+    </nav>
+    <hr>
+
+    <!-- Dark/Light Mode Toggle Button -->
+    <button id="darkLightBtn" onclick="toggleDarkLight()">🌙 Dark Mode</button>
+
+    <h1>Joel Gregory</h1>
+
+    <!-- Personal Information -->
+    <h2>Biography</h2>
+    <p>
+        My name is Joel Gregory, a dedicated Computer Science student with a passion for programming and system design.<br> 
+        I enjoy solving problems through technology and continuously learning new skills to improve my craft.
+    </p>
+
+    <!-- Skills -->
+    <h2>Skills</h2>
+    <ol>
+        <li>Programming
+            <ul>
+                <li>Java</li>
+                <li>Python</li>
+                <li>HTML & CSS</li>
+            </ul>
+        </li>
+        <li>Database Management</li>
+        <li>Networking Fundamentals</li>
+    </ol>
+
+    <!-- Education -->
+    <h2>Education</h2>
+    <button id="sortBtn" onclick="sortEducationTable()">Sort by Year ↑</button>
+    <table id="eduTable" border="2">
+        <tr>
+            <th>Level</th>
+            <th>School</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>BSc Computer Science</td>
+            <td>University of Dar es Salaam</td>
+            <td>2025-2028</td>
+        </tr>
+    </table>
+
+    <!-- Hobbies / Interests -->
+    <h2>Hobbies / Interests</h2>
+    <div class="hobby-item">
+        <strong>Coding</strong> - building small applications
+        <p class="hobby-desc">I enjoy writing small programs and tools that solve everyday problems.</p>
+    </div>
+    <div class="hobby-item">
+        <strong>Reading</strong> - exploring tech blogs and articles
+        <p class="hobby-desc">I read about the latest trends in technology and software development.</p>
+    </div>
+    <div class="hobby-item">
+        <strong>Sports</strong> - playing football with friends
+        <p class="hobby-desc">Football teaches me teamwork and keeps me physically active.</p>
+    </div>
+
+    <!-- Image Section -->
+    <h2>Image Section</h2>
+    <div class="img-section">
+        <img src="waterfall.jpg" alt="waterfalls" width="200" height="250">
+        <img src="building.jpg" alt="buildings" width="200" height="250">
+    </div>
+
+    <!-- Favorite Links -->
+    <h2>Favorite Links</h2>
+    <p><a href="https://github.com/joh2005">My GitHub</a></p>
+    <p><a href="https://www.youtube.com/">YouTube</a></p>
+    <p><a href="https://www.instagram.com/official_rickxon001" target="_blank">
+  <img src="instagram.jpg" alt="instagram icon" width="150" height="200">
+    </a>
+    </p>
+
+    <!-- Comments in Code -->
+    <!-- This is Joel Gregory's personal portfolio page -->
+    <!-- Link to external JavaScript file -->
+    <script src="js/profile-joel.js" defer></script>
+
+</body>
+</html>

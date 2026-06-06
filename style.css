@@ -1,0 +1,90 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: aqua; /* Advanced: Gradient */
+    margin: 0;
+    padding: 0;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: darkblue;
+    text-shadow: 2px 2px 4px darkblue; /* Advanced: Text Shadow */
+    margin-top: 20px;
+}
+
+/* Section Headings */
+h2 {
+    color: #006699;
+    border-bottom: 2px solid #006699;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* Biography Paragraph */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 20px;
+}
+
+/* Skills List */
+ol, ul {
+    margin: 10px 40px;
+    line-height: 1.6;
+    background-color: white;
+    border-radius: 8px; /* Advanced: Rounded Corners */
+}
+
+/* Education Table */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+table th {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+}
+table td {
+    border: 1px solid darkblue;
+    padding: 8px;
+}
+
+/* Images */
+img {
+    margin: 10px;
+    border: 3px solid hotpink;
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s; /* Advanced: Transition */
+}
+img:hover {
+    transform: scale(1.05); /* Hover effect */
+    border-color: gold;
+}
+
+/* Links */
+a {
+    color: navy;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+/* Instagram Icon Special Styling */
+a img {
+    width: 100px;
+    height: auto;
+    border: none;
+    transition: opacity 0.3s;
+}
+a img:hover {
+    opacity: 0.7;
+}
+

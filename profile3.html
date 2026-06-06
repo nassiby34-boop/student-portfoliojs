@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Martha Haule | Student Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1a2e;
+  --cream: #f5f0e8;
+  --gold: #c9a84c;
+  --muted: #7a7a8c;
+  --card: #ffffff;
+  --border: #e0d9cd;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: var(--ink);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--gold);
+  background: rgba(201,168,76,0.1);
+}
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 0%, rgba(201,168,76,0.12) 0%, transparent 65%);
+}
+
+.avatar-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #e8c96a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 0 6px rgba(201,168,76,0.15);
+  animation: fadeDown 0.7s ease both;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  color: #bbb;
+  max-width: 500px;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.6s 0.5s ease both;
+}
+
+.tag {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+/* MAIN CONTENT */
+.main {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 650px) {
+  .main { grid-template-columns: 1fr; }
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card:last-child { margin-bottom: 0; }
+
+.card-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ABOUT */
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.detail-row:last-child { margin-bottom: 0; }
+
+.detail-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--ink);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.detail-value {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* HOBBIES */
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.hobby-item {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.hobby-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.hobby-emoji { font-size: 1.6rem; display: block; margin-bottom: 0.4rem; }
+.hobby-name { font-size: 0.8rem; color: var(--muted); }
+
+/* ABOUT TEXT */
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #444;
+}
+
+/* CONTACT */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.93rem;
+  transition: color 0.2s;
+}
+
+.contact-link:last-child { border-bottom: none; }
+.contact-link:hover { color: var(--gold); }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  margin-top: 3rem;
+}
+
+footer a { color: var(--gold); text-decoration: none; }
+
+
+    /* DARK MODE */
+    body.dark-mode {
+      background-color: #1a1a2e !important;
+      color: #e0e0f0 !important;
+    }
+    body.dark-mode .card {
+      background: #13132a !important;
+      border-color: #2a2a4a !important;
+    }
+
+    /* Dark/Light button */
+    #darkLightBtn {
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: inherit;
+    }
+
+    /* Sort button */
+    #sortBtn {
+      margin-top: 0.75rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-family: inherit;
+    }
+
+    /* Read More button */
+    .read-more-btn {
+      margin-top: 0.4rem;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-family: inherit;
+    }
+
+    /* Hobby description */
+    .hobby-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Skills list */
+    .skill-list { list-style: none; padding: 0; }
+    .skill-list > li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .skill-list > li ul { margin-top: 0.4rem; margin-left: 1rem; }
+
+    /* Education table */
+    .edu-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .edu-table th {
+      text-align: left; font-size: 0.75rem; text-transform: uppercase;
+      color: var(--muted); padding: 0.5rem; border-bottom: 1px solid var(--border);
+    }
+    .edu-table td { padding: 0.75rem 0.5rem; border-bottom: 1px solid var(--border); }
+
+    /* Gallery image */
+    .gallery-img { width: 100%; border-radius: 8px; max-height: 250px; object-fit: cover; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <a class="nav-brand" href="index.html">Group Portfolio</a>
+    <button id="darkLightBtn" onclick="toggleDarkLight()">🌙 Dark Mode</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile1.html">Nasib</a></li>
+      <li><a href="profile2.html">Joel</a></li>
+      <li><a href="profile3.html" class="active">Martha</a></li>
+      <li><a href="profile4.html">Esther</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <div class="hero">
+    <div class="avatar-circle">MH</div>
+    <p class="hero-label">Student Profile · IS 181</p>
+    <h1>Martha Haule</h1>
+    <p class="hero-bio">A 19-year-old, future-focused builder carving her path in tech.</p>
+    <div class="hero-tags">
+      <span class="tag">Computer Science</span>
+      <span class="tag">Tech Builder</span>
+      <span class="tag">UDSM</span>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+
+  <div class="main">
+
+<!-- LEFT COLUMN -->
+<div>
+
+  <!-- Quick Info -->
+  <div class="card">
+    <p class="card-title">Quick Info</p>
+
+    <div class="detail-row">
+      <div class="detail-icon">🎂</div>
+      <div>
+        <div class="detail-label">Age</div>
+        <div class="detail-value">19 years old</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="detail-icon">🎓</div>
+      <div>
+        <div class="detail-label">Degree</div>
+        <div class="detail-value">Bachelor of Computer Science</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="detail-icon">🏫</div>
+      <div>
+        <div class="detail-label">University</div>
+        <div class="detail-value">University of Dar es Salaam</div>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <div class="detail-icon">📍</div>
+      <div>
+        <div class="detail-label">Location</div>
+        <div class="detail-value">Dar es Salaam, Tanzania</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="card">
+    <p class="card-title">Contact</p>
+    <a class="contact-link" href="mailto:group11is181@udsm.edu">
+      <span>✉️</span> group11is181@udsm.edu
+    </a>
+  </div>
+
+</div>
+
+<!-- RIGHT COLUMN -->
+<div>
+
+  <!-- About -->
+  <div class="card">
+    <p class="card-title">About Me</p>
+    <p class="about-text">
+      Hi! I'm Martha Haule, a 19-year-old Computer Science student at the University of Dar es Salaam. I'm a future-focused builder carving my path in tech — passionate about using technology to create meaningful solutions. I believe in learning by doing, and every project I take on brings me one step closer to the innovator I'm working to become.
+    </p>
+  </div>
+
+  <!-- Hobbies -->
+  <div class="card">
+    <p class="card-title">Hobbies & Interests</p>
+    <div class="hobby-grid">
+      <div class="hobby-item">
+        <span class="hobby-emoji">📚</span>
+        <span class="hobby-name">Reading</span>
+        <p class="hobby-desc">I love reading books about technology and self-development.</p>
+      </div>
+      <div class="hobby-item">
+        <span class="hobby-emoji">🎵</span>
+        <span class="hobby-name">Singing</span>
+        <p class="hobby-desc">Singing refreshes me and gives me positive energy.</p>
+      </div>
+      <div class="hobby-item">
+        <span class="hobby-emoji">💻</span>
+        <span class="hobby-name">Coding</span>
+        <p class="hobby-desc">I enjoy writing code and building things on the web.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Skills Card -->
+  <div class="card">
+    <p class="card-title">Skills</p>
+    <ul class="skill-list">
+      <li>Programming
+        <ul>
+          <li>HTML &amp; CSS</li>
+          <li>Python</li>
+        </ul>
+      </li>
+      <li>Design
+        <ul>
+          <li>Graphics Designing</li>
+          <li>UI Concepts</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Education Card -->
+  <div class="card">
+    <p class="card-title">Education</p>
+    <button id="sortBtn" onclick="sortEducationTable()">Sort by Year ↑</button>
+    <table id="eduTable" class="edu-table">
+      <tr>
+        <th>Level</th>
+        <th>Institution</th>
+        <th>Year</th>
+      </tr>
+      <tr>
+        <td>Undergraduate</td>
+        <td>University of Dar es Salaam</td>
+        <td>2025 – Present</td>
+      </tr>
+      <tr>
+        <td>Secondary School</td>
+        <td>Previous School</td>
+        <td>2022 – 2025</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Gallery Card -->
+  <div class="card">
+    <p class="card-title">Gallery</p>
+    <img class="gallery-img" src="images/martha_profile.jpg" alt="Martha Haule">
+  </div>
+
+</div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Group Portfolio · IS 181: Web Programming · <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <!-- Link to external JavaScript file -->
+  <script src="js/profile-martha.js" defer></script>
+
+</body>
+</html>

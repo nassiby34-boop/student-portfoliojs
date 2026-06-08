@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Portfolio Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a2e;
+      --cream: #f5f0e8;
+      --gold: #c9a84c;
+      --muted: #7a7a8c;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--ink);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+    }
+
+    /* CLOCK in nav */
+    #liveClock {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-family: 'DM Sans', monospace;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.75rem;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 70%);
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #aaa;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--ink);
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+      position: relative;
+    }
+
+    .hero-btn:hover { opacity: 0.85; }
+
+    /* SECTION */
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .section-desc {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* STUDENT GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .student-card {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      border: 1px solid #e8e2d6;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+    }
+
+    .student-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--ink);
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    .student-name {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .student-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* DIVIDER */
+    .divider {
+      border: none;
+      border-top: 1px solid #e0d9cd;
+      margin: 0 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: #666;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="nav-brand" href="index.html">Group Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="profile1.html">Nasib</a></li>
+      <li><a href="profile2.html">Joel</a></li>
+      <li><a href="profile3.html">Martha</a></li>
+      <li><a href="profile4.html">Esther</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><span id="liveClock"></span></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">IS 181 · Web Programming</p>
+    <h1>Student Portfolio<br/>Website</h1>
+    <p id="typewriterText"></p>
+    <a href="contact.html" class="hero-btn">Get In Touch</a>
+  </div>
+
+  <!-- GROUP INTRO -->
+  <section>
+    <p class="section-label">Who We Are</p>
+    <h2 class="section-title">Meet the Group</h2>
+    <p class="section-desc">
+      We are a team of 4 students from IS 181: Web Programming. This website was built as a group project where each member designed and developed their own personal portfolio page.
+    </p>
+
+    <!-- STUDENT CARDS -->
+    <div class="grid">
+      <a class="student-card" href="profile1.html">
+        <div class="avatar">NY</div>
+        <div class="student-name">Nasib Yasin Said</div>
+        <div class="student-role">View Profile →</div>
+      </a>
+      <a class="student-card" href="profile2.html">
+        <div class="avatar">JG</div>
+        <div class="student-name">Joel Gregory</div>
+        <div class="student-role">View Profile →</div>
+      </a>
+      <a class="student-card" href="profile3.html">
+        <div class="avatar">MH</div>
+        <div class="student-name">Martha Haule</div>
+        <div class="student-role">View Profile →</div>
+      </a>
+      <a class="student-card" href="profile4.html">
+        <div class="avatar">EM</div>
+        <div class="student-name">Esther Mbise</div>
+        <div class="student-role">View Profile →</div>
+      </a>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <footer>
+    <p>© 2025 Group Portfolio · IS 181: Web Programming · <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <!-- JS LINK (external, placed before closing body tag) -->
+  <script src="home.js"></script>
+
+</body>
+</html>
